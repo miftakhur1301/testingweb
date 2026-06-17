@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jasa Kami — Simple, Elegan, dan Cepat</title>
+  <meta name="description" content="Halaman penawaran jasa: profil, layanan, paket, testimoni, dan CTA untuk target 18–35." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg0:#070b14;
+      --bg1:#0b1220;
+      --card:rgba(17,26,46,.72);
+      --card2:rgba(17,26,46,.55);
+      --muted:#9fb0d0;
+      --text:#eaf1ff;
+      --primary:#4f8cff;
+      --primary2:#2b6fff;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 14px 45px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% 0%, rgba(79,140,255,.26), transparent 52%),
+        radial-gradient(900px 550px at 90% 10%, rgba(43,111,255,.20), transparent 45%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      line-height:1.5;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%}
+
+    .container{max-width:1120px; margin:0 auto; padding:22px;}
+
+    header{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(10px);
+      background: rgba(7,11,20,.65);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 22px; max-width:1120px; margin:0 auto;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;}
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(79,140,255,.95), rgba(79,140,255,.10));
+      box-shadow: 0 10px 26px rgba(79,140,255,.20);
+    }
+
+    nav{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
+    .pill{
+      border:1px solid var(--border);
+      background: rgba(17,26,46,.40);
+      padding:10px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+      font-weight:700;
+      color: rgba(234,241,255,.92);
+    }
+    .pill:hover{border-color: rgba(79,140,255,.55)}
+
+    .btn{
+      border:none; cursor:pointer;
+      color:white;
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      padding:11px 14px;
+      border-radius:14px;
+      font-weight:800;
+      box-shadow: 0 12px 32px rgba(79,140,255,.18);
+    }
+    .btn:hover{filter: brightness(1.05)}
+    .btn:disabled{opacity:.6; cursor:not-allowed; box-shadow:none}
+    .btn-ghost{
+      border:1px solid var(--border);
+      background: rgba(17,26,46,.45);
+      color: var(--text);
+      padding:11px 14px;
+      border-radius:14px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .hero{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    .card{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{padding:20px;}
+
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(79,140,255,.35);
+      background: rgba(79,140,255,.12);
+      color: rgba(234,241,255,.95);
+      font-weight:800;
+      font-size:13px;
+    }
+    h1{margin:12px 0 10px; font-size:34px; letter-spacing:-.6px;}
+    .lead{color:var(--muted); margin:0; font-size:15.5px;}
+
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;}
+
+    .hero-side{padding:16px; display:flex; flex-direction:column; gap:12px;}
+    .statgrid{display:grid; grid-template-columns: repeat(2,1fr); gap:12px;}
+    .stat{
+      padding:14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(11,18,32,.30);
+    }
+    .stat .n{font-size:20px; font-weight:900;}
+    .stat .t{color:var(--muted); font-size:13px; margin-top:4px;}
+
+    .section{margin-top:18px;}
+    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:10px;}
+    .section-title h2{margin:0; font-size:16px; letter-spacing:.2px;}
+    .section-title .sub{color:var(--muted); font-size:13.5px; max-width:560px;}
+
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px;}
+
+    .service{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(17,26,46,.48);
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .icon{
+      width:44px; height:44px; border-radius:16px;
+      border:1px solid rgba(79,140,255,.35);
+      background: rgba(79,140,255,.12);
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px;
+    }
+    .service h3{margin:0; font-size:15.5px;}
+    .service p{margin:0; color:var(--muted); font-size:13.5px;}
+    .tagrow{display:flex; gap:8px; flex-wrap:wrap; margin-top:2px;}
+    .tag{
+      font-size:12.5px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(11,18,32,.25);
+      color: rgba(234,241,255,.92);
+      font-weight:700;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .timeline{padding:18px;}
+    .step{display:flex; gap:12px; padding:12px 0; border-top:1px solid rgba(255,255,255,.06)}
+    .step:first-child{border-top:none; padding-top:0}
+    .dot{width:34px; height:34px; border-radius:14px; border:1px solid rgba(79,140,255,.35); background: rgba(79,140,255,.12); display:flex; align-items:center; justify-content:center; font-weight:900;}
+    .step h3{margin:0; font-size:14.5px;}
+    .step p{margin:4px 0 0; color:var(--muted); font-size:13.5px}
+
+    .contact-card{padding:18px;}
+    form{display:flex; flex-direction:column; gap:12px; margin-top:8px;}
+    .row2{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+    label{font-size:13px; color:var(--muted)}
+    input, textarea, select{
+      width:100%;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(11,18,32,.35);
+      color:var(--text);
+      outline:none;
+      font-family:inherit;
+    }
+    textarea{resize:vertical; min-height:104px;}
+
+    .toast{
+      position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
+      background: rgba(17,26,46,.95);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px 14px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      color: rgba(234,241,255,.95);
+      display:none;
+      z-index:50;
+      max-width: 520px;
+    }
+    .toast strong{color:white}
+
+    footer{padding:28px 22px 38px; color:rgba(159,176,208,.85); text-align:center; font-size:12.5px}
+
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr;}
+      .grid3{grid-template-columns:1fr;}
+      .grid2{grid-template-columns:1fr;}
+      .split{grid-template-columns:1fr;}
+      h1{font-size:28px}
+      nav{justify-content:flex-start}
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto !important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:14px; color:rgba(159,176,208,.95); font-weight:800; letter-spacing:.2px">PENAWARAN JASA</div>
+          <div style="font-size:16px; margin-top:2px">SimpleElegan Studio</div>
+        </div>
+      </div>
+      <nav>
+        <div class="pill" data-scroll="#profil">Profil</div>
+        <div class="pill" data-scroll="#layanan">Layanan</div>
+        <div class="pill" data-scroll="#paket">Paket</div>
+        <div class="pill" data-scroll="#testimoni">Testimoni</div>
+        <button class="btn" data-scroll="#kontak" type="button">Konsultasi</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-label="Hero">
+      <div class="card hero-main">
+        <div class="kicker">✨ Cepat • Rapi • Dibuat untuk kamu (18–35)</div>
+        <h1>Jasa desain & pengembangan yang fokus ke hasil, bukan cuma tampilan.</h1>
+        <p class="lead">
+          Kami bantu kebutuhan branding, website landing page, hingga konten promosi. Prosesnya transparan,
+          deliverables jelas, dan komunikasi ringan—cocok untuk kamu yang ingin bergerak cepat.
+        </p>
+        <div class="hero-actions">
+          <button class="btn" type="button" data-scroll="#kontak">Minta Penawaran</button>
+          <button class="btn-ghost" type="button" data-scroll="#layanan">Lihat Layanan</button>
+        </div>
+        <div style="margin-top:14px; color:var(--muted); font-size:13.5px">
+          <b style="color:rgba(234,241,255,.95)">Termasuk:</b> revisi terjadwal, template siap pakai, dan panduan singkat.
+        </div>
+      </div>
+
+      <aside class="card hero-side" aria-label="Ringkasan">
+        <div class="statgrid">
+          <div class="stat">
+            <div class="n">3–7</div>
+            <div class="t">Hari estimasi mulai (tergantung scope)</div>
+          </div>
+          <div class="stat">
+            <div class="n">2x</div>
+            <div class="t">Revisi terjadwal per paket</div>
+          </div>
+          <div class="stat">
+            <div class="n">24/7</div>
+            <div class="t">Update progres (chat/WA/email)</div>
+          </div>
+          <div class="stat">
+            <div class="n">Clean</div>
+            <div class="t">UI modern, responsif, dan cepat</div>
+          </div>
+        </div>
+        <div class="service" style="margin-top:2px; background: rgba(17,26,46,.36)">
+          <div class="icon">📍</div>
+          <h3>Target pasar</h3>
+          <p>Kreator, UMKM, dan profesional muda yang butuh penawaran cepat & tampilan modern.</p>
+          <div class="tagrow">
+            <span class="tag">18–35</span>
+            <span class="tag">Startup</span>
+            <span class="tag">UMKM</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="profil" class="section" aria-label="Profil">
+      <div class="section-title">
+        <h2>Profil</h2>
+        <div class="sub">Singkat, jelas, dan fokus ke value. Kamu tahu apa yang didapat.</div>
+      </div>
+      <div class="split">
+        <div class="card" style="padding:18px">
+          <div class="service" style="border:none; background: transparent; padding:0">
+            <div class="icon">🧠</div>
+            <h3>Kenapa kami?</h3>
+            <p>
+              Kami menggabungkan desain modern dengan struktur yang rapi. Tujuannya supaya pesan promosi kamu
+              langsung sampai, dan pengunjung punya alasan untuk menghubungi.
+            </p>
+            <div class="tagrow">
+              <span class="tag">UX sederhana</span>
+              <span class="tag">CTA jelas</span>
+              <span class="tag">Konsisten</span>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="padding:18px">
+          <div class="service" style="border:none; background: transparent; padding:0">
+            <div class="icon">⚡</div>
+            <h3>Metode kerja</h3>
+            <p>
+              Brief → sketsa arah → draft → revisi terjadwal → final. Kamu bisa lihat progress dan tetap sinkron.
+            </p>
+            <div class="tagrow">
+              <span class="tag">Transparan</span>
+              <span class="tag">Cepat</span>
+              <span class="tag">Terukur</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions" style="margin-top:14px">
+        <button class="btn-ghost" type="button" data-scroll="#hero">◀ Start</button>
+        <button class="btn" type="button" data-scroll="#layanan">Next: Layanan →</button>
+      </div>
+    </section>
+
+    <section id="layanan" class="section" aria-label="Layanan">
+      <div class="section-title">
+        <h2>Layanan yang tersedia</h2>
+        <div class="sub">Pilih layanan yang sesuai kebutuhanmu. Semua dibuat responsif dan mudah dipakai.</div>
+      </div>
+
+      <div class="grid3">
+        <article class="service">
+          <div class="icon">🖥️</div>
+          <h3>Landing Page untuk Jualan</h3>
+          <p>Halaman promosi modern (hero, benefit, layanan, FAQ, CTA) siap untuk kampanye.</p>
+          <div class="tagrow">
+            <span class="tag">Mobile-first</span>
+            <span class="tag">SEO dasar</span>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="icon">🎨</div>
+          <h3>Desain Branding & Visual</h3>
+          <p>Identitas visual: warna, style guide ringan, dan aset promosi yang konsisten.</p>
+          <div class="tagrow">
+            <span class="tag">Guideline</span>
+            <span class="tag">Konsisten</span>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="icon">🧩</div>
+          <h3>UI/UX & Konten CTA</h3>
+          <p>Struktur halaman biar pengunjung paham cepat: siapa, apa, manfaat, dan langkah berikut.</p>
+          <div class="tagrow">
+            <span class="tag">Copy CTA</span>
+            <span class="tag">Tersusun</span>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="icon">📦</div>
+          <h3>Paket Konten Promosi</h3>
+          <p>Template post, carousel, atau story untuk promosi rutin (bisa menyesuaikan tema brand).</p>
+          <div class="tagrow">
+            <span class="tag">Template</span>
+            <span class="tag">Seragam</span>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="icon">⚙️</div>
+          <h3>Website Statis Sederhana</h3>
+          <p>Website multi-seksi: profil, layanan, portofolio, testimoni, dan form kontak.</p>
+          <div class="tagrow">
+            <span class="tag">Cepat</span>
+            <span class="tag">Responsive</span>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="icon">🗓️</div>
+          <h3>Perbaikan & Optimasi</h3>
+          <p>Refactor tampilan, rapikan layout, perbaiki alur CTA, dan tambah section yang hilang.</p>
+          <div class="tagrow">
+            <span class="tag">Audit ringan</span>
+            <span class="tag">Revisi</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="hero-actions" style="margin-top:14px">
+        <button class="btn-ghost" type="button" data-scroll="#profil">◀ Back: Profil</button>
+        <button class="btn" type="button" data-scroll="#paket">Next: Paket →</button>
+      </div>
+    </section>
+
+    <section id="paket" class="section" aria-label="Paket">
+      <div class="section-title">
+        <h2>Paket penawaran</h2>
+        <div class="sub">Harga bisa disesuaikan kebutuhan. Isi form untuk estimasi paling sesuai.</div>
+      </div>
+
+      <div class="grid3">
+        <article class="service">
+          <div class="icon">🌱</div>
+          <h3>Paket Starter</h3>
+          <p>Untuk kamu yang ingin cepat launching.</p>
+          <div class="tagrow">
+            <span class="tag">Landing 1 halaman</span>
+            <span class="tag">CTA & FAQ</span>
+          </div>
+          <div style="margin-top:auto; color:var(--muted); font-size:13.5px">
+            Cocok: UMKM / layanan kecil
+          </div>
+        </article>
+
+        <article class="service" style="border-color: rgba(79,140,255,.50); background: rgba(79,140,255,.10)">
+          <div class="icon">🔥</div>
+          <h3>Paket Growth</h3>
+          <p>Untuk promosi yang butuh struktur lengkap.</p>
+          <div class="tagrow">
+            <span class="tag">Multi-seksi</span>
+            <span class="tag">Desain visual</span>
+            <span class="tag">Revisi terjadwal</span>
+          </div>
+          <div style="margin-top:auto; color:rgba(234,241,255,.92); font-size:13.5px">
+            Cocok: startup / campaign aktif
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="icon">🏆</div>
+          <h3>Paket Pro</h3>
+          <p>Untuk yang butuh konsistensi & optimasi lebih dalam.</p>
+          <div class="tagrow">
+            <span class="tag">Audit & optimasi</span>
+            <span class="tag">Konten CTA</span>
+          </div>
+          <div style="margin-top:auto; color:var(--muted); font-size:13.5px">
+            Cocok: brand yang ingin scale
+          </div>
+        </article>
+      </div>
+
+      <div class="card timeline" style="margin-top:14px">
+        <div class="section-title" style="margin-bottom:6px">
+          <h2>Alur pengerjaan</h2>
+          <div class="sub">Biarkan kami yang atur langkahnya.</div>
+        </div>
+        <div class="step">
+          <div class="dot">1</div>
+          <div>
+            <h3>Brief kebutuhan</h3>
+            <p>Kamu isi form: tujuan, layanan, target, dan referensi.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">2</div>
+          <div>
+            <h3>Draft konsep</h3>
+            <p>Struktur section, gaya visual, dan arahan CTA.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">3</div>
+          <div>
+            <h3>Revisi terjadwal</h3>
+            <p>Perbaiki bagian yang kamu ingin sematkan supaya makin pas.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">4</div>
+          <div>
+            <h3>Final & serah terima</h3>
+            <p>File siap pakai + panduan singkat penggunaan.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions" style="margin-top:14px">
+        <button class="btn-ghost" type="button" data-scroll="#layanan">◀ Back: Layanan</button>
+        <button class="btn" type="button" data-scroll="#testimoni">Next: Testimoni →</button>
+      </div>
+    </section>
+
+    <section id="testimoni" class="section" aria-label="Testimoni">
+      <div class="section-title">
+        <h2>Testimoni (contoh)</h2>
+        <div class="sub">Ganti teks dengan pengalaman klienmu. Template ini sudah siap.</div>
+      </div>
+
+      <div class="grid3">
+        <article class="service">
+          <div class="icon">⭐</div>
+          <h3>“Cepat dan rapi.”</h3>
+          <p>Struktur halaman jelas. CTA-nya terasa natural dan akhirnya lebih banyak yang chat.</p>
+          <div class="small" style="color:var(--muted); font-size:13.5px">— Aulia, UMKM kuliner</div>
+        </article>
+        <article class="service">
+          <div class="icon">💬</div>
+          <h3>“Komunikasinya enak.”</h3>
+          <p>Revisi terjadwal bikin proses nggak bikin pusing. Hasil sesuai briefing.</p>
+          <div class="small" style="color:var(--muted); font-size:13.5px">— Dimas, layanan desain</div>
+        </article>
+        <article class="service">
+          <div class="icon">🚀</div>
+          <h3>“Landing page siap jualan.”</h3>
+          <p>Bagus di mobile, loading cepat. Tinggal posting dan mulai campaign.</p>
+          <div class="small" style="color:var(--muted); font-size:13.5px">— Nisa, startup</div>
+        </article>
+      </div>
+
+      <div class="hero-actions" style="margin-top:14px">
+        <button class="btn-ghost" type="button" data-scroll="#paket">◀ Back: Paket</button>
+        <button class="btn" type="button" data-scroll="#kontak">Next: Kontak →</button>
+      </div>
+    </section>
+
+    <section id="kontak" class="section" aria-label="Kontak">
+      <div class="section-title">
+        <h2>Kontak / Minta penawaran</h2>
+        <div class="sub">Form ini akan menyusun pesan (tanpa backend). Kamu bisa lanjut kirim via WhatsApp atau email.</div>
+      </div>
+
+      <div class="split">
+        <div class="card contact-card">
+          <div class="service" style="border:none; background: transparent; padding:0">
+            <div class="icon">✉️</div>
+            <h3>Tuliskan kebutuhanmu</h3>
+            <p>Semakin jelas brief, semakin cepat kami kasih estimasi yang pas.</p>
+          </div>
+
+          <form id="leadForm">
+            <div class="row2">
+              <div class="field">
+                <label>Nama</label>
+                <input id="nama" name="nama" placeholder="Nama kamu" required />
+              </div>
+              <div class="field">
+                <label>No. HP / WhatsApp</label>
+                <input id="hp" name="hp" inputmode="tel" placeholder="08xxxx" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Jenis layanan</label>
+              <select id="jenis" name="jenis" required>
+                <option value="Landing Page">Landing Page</option>
+                <option value="Branding & Visual">Branding & Visual</option>
+                <option value="UI/UX & Konten CTA">UI/UX & Konten CTA</option>
+                <option value="Paket Konten Promosi">Paket Konten Promosi</option>
+                <option value="Website Statis Sederhana">Website Statis Sederhana</option>
+                <option value="Perbaikan & Optimasi">Perbaikan & Optimasi</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>Target (mis. penjualan/brand awareness)</label>
+              <input id="target" name="target" placeholder="Contoh: tingkatkan chat masuk" />
+            </div>
+
+            <div class="field">
+              <label>Catatan singkat</label>
+              <textarea id="catatan" name="catatan" placeholder="Sebutkan: referensi, jumlah halaman, deadline, dan gaya yang kamu suka."></textarea>
+            </div>
+
+            <div class="hero-actions" style="margin:0">
+              <button class="btn" type="submit">Buat Pesan</button>
+              <button class="btn-ghost" type="button" id="copyBtn">Copy pesan</button>
+            </div>
+
+            <div class="small" style="color:var(--muted); font-size:13.5px" id="resultHint">
+              Setelah klik “Buat Pesan”, pesan akan muncul di bawah.
+            </div>
+
+            <div class="field" style="margin-top:2px">
+              <label>Output pesan</label>
+              <textarea id="messageOut" readonly></textarea>
+            </div>
+          </form>
+        </div>
+
+        <div class="card contact-card">
+          <div class="service" style="border:none; background: transparent; padding:0">
+            <div class="icon">🧾</div>
+            <h3>Yang kamu dapat dari kami</h3>
+            <p>Checklist supaya ekspektasi kamu jelas.</p>
+          </div>
+
+          <div class="step" style="border-top:none; padding-top:0">
+            <div class="dot">✓</div>
+            <div>
+              <h3>Deliverables sesuai scope</h3>
+              <p>Kami kirim hasil yang bisa langsung dipakai untuk promosi.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">✓</div>
+            <div>
+              <h3>Revisi terjadwal</h3>
+              <p>Tidak bolak-balik tanpa arah—revisi mengikuti jadwal.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">✓</div>
+            <div>
+              <h3>Komunikasi ringan</h3>
+              <p>Update progres yang konsisten (chat/WA/email).</p>
+            </div>
+          </div>
+
+          <div class="service" style="margin-top:12px">
+            <div class="icon">📞</div>
+            <h3>Contoh kontak</h3>
+            <p>Ganti dengan nomor WA / email kamu. Tombol di bawah hanya contoh.</p>
+            <div class="hero-actions" style="margin-top:6px">
+              <button class="btn-ghost" type="button" onclick="alert('Ganti dengan tautan WhatsApp kamu.')">WhatsApp</button>
+              <button class="btn-ghost" type="button" onclick="alert('Ganti dengan alamat email kamu.')">Email</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions" style="margin-top:14px">
+        <button class="btn-ghost" type="button" data-scroll="#testimoni">◀ Back: Testimoni</button>
+        <button class="btn" type="button" data-scroll="#profil">Kembali ke atas ↑</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Template website penawaran jasa • SimpleElegan Studio • Dibuat responsif untuk target 18–35.
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const $ = (sel) => document.querySelector(sel);
+    const toastEl = $('#toast');
+
+    function showToast(html){
+      toastEl.innerHTML = html;
+      toastEl.style.display = 'block';
+      clearTimeout(window.__t);
+      window.__t = setTimeout(() => toastEl.style.display = 'none', 2600);
+    }
+
+    function scrollToHash(hash){
+      const el = document.querySelector(hash);
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    document.querySelectorAll('[data-scroll]').forEach(btn => {
+      btn.addEventListener('click', () => scrollToHash(btn.getAttribute('data-scroll')));
+    });
+
+    const form = $('#leadForm');
+    const messageOut = $('#messageOut');
+    const copyBtn = $('#copyBtn');
+
+    function buildMessage(){
+      const nama = $('#nama').value.trim();
+      const hp = $('#hp').value.trim();
+      const jenis = $('#jenis').value;
+      const target = ($('#target').value || '').trim();
+      const catatan = ($('#catatan').value || '').trim();
+
+      const lines = [
+        `Halo ${nama ? nama : 'tim'}! Saya ingin minta penawaran jasa.`,
+        `\nNama: ${nama || '-'} (WA: ${hp || '-'})`,
+        `Jenis layanan: ${jenis || '-'}`,
+        target ? `Target: ${target}` : `Target: -`,
+        catatan ? `Catatan: ${catatan}` : `Catatan: -`,
+        `\nMohon estimasi paket & timeline pengerjaan. Terima kasih!`
+      ];
+
+      return lines.join('\n');
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = buildMessage();
+      messageOut.value = msg;
+      showToast('<strong>Pesan berhasil dibuat.</strong> Silakan copy atau kirim via kontak kamu.');
+    });
+
+    copyBtn.addEventListener('click', async () => {
+      const text = messageOut.value.trim();
+      if(!text){
+        showToast('Belum ada pesan. Klik <strong>Buat Pesan</strong> dulu.');
+        return;
+      }
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast('<strong>Disalin.</strong> Siap ditempel di WhatsApp/Email.');
+      }catch{
+        messageOut.select();
+        document.execCommand('copy');
+        showToast('<strong>Disalin.</strong>');
+      }
+    });
+  </script>
+</body>
+</html>
+
